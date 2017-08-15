@@ -11,5 +11,7 @@ require(dplyr)
 
 baltimore<-subset(NEI, NEI$fips==24510)           #Subset Baltimore area
 totalBaltimore<-tapply(baltimore$Emissions, INDEX=baltimore$year, sum)   #Sum emissions per year
-clrs <- c("red", "green", "blue", "yellow")
-barplot(totalBaltimore, main="Total Emissions in Baltimore, MD by Year", xlab="Year", ylab="Emissions",col=clrs)
+png('plot2.png')
+barplot(height=totalBaltimorer$Emissions, names.arg=totalBaltimore$year, xlab="years", ylab=expression('total PM'[2.5]*' emission'),main=expression('Total PM'[2.5]*' in the Baltimore City, MD emissions at various years'))
+dev.off()
+
